@@ -1,0 +1,17 @@
+<!--
+  Author: Chengwu Liu
+  Student ID: 24832423
+  Module: PROG2005 A2 - Part 2 - app.html
+  Description: Root App component template with navigation
+-->
+<!-- Key: Main navigation bar -->
+<nav>
+  <a routerLink="/"><span class="nav-icon">🏠</span> Home</a>
+  <a routerLink="/manage"><span class="nav-icon">📝</span> Item Management</a>
+  <a routerLink="/search"><span class="nav-icon">🔍</span> Search</a>
+  <a routerLink="/privacy"><span class="nav-icon">🔒</span> Privacy Policy</a>
+  <a routerLink="/help"><span class="nav-icon">❓</span> Help</a>
+</nav>
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,132 @@
+/**
+ * Author: Chengwu Liu
+ * Student ID: 24832423
+ * Module: PROG2005 A2 - Part 2 - help.css
+ * Description: Styles for Help page component
+ */
+
+:host {  /* Key: Component host styles */
+  display: block;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {  /* Key: Page heading style */
+  color: #1a1a2e;
+  font-size: 2.2rem;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+h3 {
+  color: #667eea;
+  font-size: 1.3rem;
+  margin: 30px 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.help-section {  /* Key: Help topic container */
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 15px 20px;
+  margin: 12px 0;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f5f7ff 100%);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  color: #444;
+  line-height: 1.7;
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  transform: translateX(8px) scale(1.01);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+}
+
+li:before {
+  content: "💡";
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.faq-section li {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+  border-left-color: #ff6b6b;
+}
+
+.faq-section li:before {
+  content: "❓";
+}
+
+.tip-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.tip-box h3 {
+  color: white;
+  border-bottom: none;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.tip-box p {
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.section-number {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  .help-section {
+    padding: 20px;
+  }
+  
+  li {
+    padding: 12px 15px;
+  }
+}

@@ -1,0 +1,186 @@
+<!--
+  Author: Chengwu Liu
+  Student ID: 24832423
+  Module: PROG2005 A2 - Part 2 - item-manage.html
+  Description: Item Management component template (Modern Layout)
+-->
+<div class="page-header">
+  <h1>📝 Item Management</h1>
+  <p class="subtitle">Manage your inventory items efficiently</p>
+</div>
+
+<!-- Key: Statistics dashboard -->
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="stat-card">
+    <span class="stat-icon">📦</span>
+    <div class="stat-info">
+      <span class="stat-value">{{ items.length }}</span>
+      <span class="stat-label">Total Items</span>
+    </div>
+  </div>
+  <div class="stat-card hot">
+    <span class="stat-icon">🔥</span>
+    <div class="stat-info">
+      <span class="stat-value">{{ getHotItemsCount() }}</span>
+      <span class="stat-label">Hot Items</span>
+    </div>
+  </div>
+  <div class="stat-card in-stock">
+    <span class="stat-icon">✅</span>
+    <div class="stat-info">
+      <span class="stat-value">{{ getInStockCount() }}</span>
+      <span class="stat-label">In Stock</span>
+    </div>
+  </div>
+</div>
+
+<!-- Key: Add item form section -->
+<!-- Add Item Form -->
+<div class="form-card">
+  <h3 class="section-title">
+    <span class="title-icon">➕</span>
+    Add New Item
+  </h3>
+  
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Item ID <span class="required">*</span></label>
+      <div class="input-wrapper">
+        <span class="input-icon">🏷️</span>
+        <input type="text" [(ngModel)]="id" placeholder="Unique identifier">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Item Name <span class="required">*</span></label>
+      <div class="input-wrapper">
+        <span class="input-icon">📦</span>
+        <input type="text" [(ngModel)]="name" placeholder="Product name">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Category <span class="required">*</span></label>
+      <div class="input-wrapper">
+        <span class="input-icon">📂</span>
+        <select [(ngModel)]="category">
+          <option value="">Select category...</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Tools">Tools</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Quantity <span class="required">*</span></label>
+      <div class="input-wrapper">
+        <span class="input-icon">📊</span>
+        <input type="number" [(ngModel)]="quantity" placeholder="0" min="0">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Price ($) <span class="required">*</span></label>
+      <div class="input-wrapper">
+        <span class="input-icon">💰</span>
+        <input type="number" [(ngModel)]="price" placeholder="0.00" min="0" step="0.01">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Supplier <span class="required">*</span></label>
+      <div class="input-wrapper">
+        <span class="input-icon">🏭</span>
+        <input type="text" [(ngModel)]="supplier" placeholder="Supplier name">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Status</label>
+      <div class="input-wrapper">
+        <span class="input-icon">📋</span>
+        <select [(ngModel)]="status">
+          <option value="In Stock">✅ In Stock</option>
+          <option value="Out of Stock">❌ Out of Stock</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group checkbox-group">
+      <label class="checkbox-label">
+        <input type="checkbox" [(ngModel)]="isHot">
+        <span class="checkbox-custom"></span>
+        <span class="checkbox-text">🔥 Hot Sale Item</span>
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <button class="btn-add" (click)="addItem()">
+      <span class="btn-icon">➕</span>
+      Add Item
+    </button>
+  </div>
+</div>
+
+<!-- Key: Items list display -->
+<!-- Item List -->
+<div class="list-section">
+  <h3 class="section-title">
+    <span class="title-icon">📋</span>
+    Item List
+    <span class="item-count">{{ items.length }} items</span>
+  </h3>
+  
+  <div class="items-grid" *ngIf="items.length > 0">
+    <div *ngFor="let item of items" class="item-card-modern" [class.hot-item]="item.isHot">
+      <div class="item-header">
+        <div class="item-title">
+          <h4>{{ item.name }}</h4>
+          <span class="item-id">ID: {{ item.id }}</span>
+        </div>
+        <span class="hot-badge" *ngIf="item.isHot">🔥 HOT</span>
+      </div>
+      
+      <div class="item-details">
+        <div class="detail">
+          <span class="detail-label">Category</span>
+          <span class="detail-value">{{ item.category }}</span>
+        </div>
+        <div class="detail">
+          <span class="detail-label">Quantity</span>
+          <span class="detail-value">{{ item.quantity }}</span>
+        </div>
+        <div class="detail">
+          <span class="detail-label">Price</span>
+          <span class="detail-value price">${{ item.price }}</span>
+        </div>
+        <div class="detail">
+          <span class="detail-label">Status</span>
+          <span class="status-badge" [class.in-stock]="item.status === 'In Stock'" [class.out-stock]="item.status === 'Out of Stock'">
+            {{ item.status }}
+          </span>
+        </div>
+      </div>
+      
+      <div class="item-footer">
+        <span class="supplier">🏭 {{ item.supplier }}</span>
+        <button class="btn-delete" (click)="deleteItem(item.name)">
+          <span class="btn-icon">🗑️</span>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="items.length === 0">
+    <div class="empty-icon">📭</div>
+    <h3>No items yet</h3>
+    <p>Add your first item using the form above</p>
+  </div>
+</div>
