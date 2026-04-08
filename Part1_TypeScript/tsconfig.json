@@ -1,0 +1,12 @@
+{
+  // Key: TypeScript compiler configuration
+  "compilerOptions": {
+    "target": "ES6",           // Key: Compile to ES6
+    "module": "ES6",           // Key: Use ES modules
+    "outDir": "./dist",        // Key: Output directory
+    "rootDir": "./src",        // Key: Source directory
+    "strict": true,            // Key: Enable strict type checking
+    "esModuleInterop": true,   // Key: ES module interoperability
+    "moduleResolution": "bundler"
+  }
+}
