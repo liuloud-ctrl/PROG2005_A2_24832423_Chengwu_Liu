@@ -7,7 +7,7 @@
 ## Project Structure
 - Part1_TypeScript/ : TypeScript inventory management system
 - Part2_Angular/ : Angular multi-page application
-- Declarations.txt : GenAI & Academic Integrity declarations
+- Declarations: GenAI & Academic Integrity declarations
 
 ## Functions Implemented
 - Add, edit, delete inventory items
