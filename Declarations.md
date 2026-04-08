@@ -1,5 +1,4 @@
 ====================================
-
 PROG2005 Assignment 2 - Declarations
 
 Student Name: Chengwu Liu
