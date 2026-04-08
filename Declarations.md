@@ -1,4 +1,3 @@
-====================================
 PROG2005 Assignment 2 - Declarations
 
 Student Name: Chengwu Liu
@@ -6,6 +5,7 @@ Student Name: Chengwu Liu
 Student ID: 24832423
 
 GitHub: https://github.com/liuloud-ctrl/PROG2005_A2_24832423_Chengwu_Liu.git
+
 ====================================
 
 --------------------------
